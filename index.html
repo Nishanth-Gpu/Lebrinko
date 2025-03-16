@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The King's Wager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>The King's Wager</h1>
+        <h2>Balance: $<span id="balance">{{ balance }}</span></h2>
+
+        <div class="overview">
+            <p>LeBron is playing tonight! Place a bet on his performance:</p>
+            <p>If you guess correctly, you win 3x your bet. If you're wrong, you lose your bet.</p>
+        </div>
+
+        <div class="bet-section">
+            <input type="number" id="betAmount" placeholder="Enter bet amount">
+            <button onclick="placeBet('good')">LeBron Plays Crazy</button>
+            <button onclick="placeBet('bad')">LeBron Plays Bad</button>
+        </div>
+
+        <div id="resultSection" style="display:none;">
+            <h2 id="resultText"></h2>
+            <img id="lebronImage" src="" alt="LeBron Reaction" style="display:none;">
+            <iframe id="highlightClip" width="800" height="450" style="display:none;" frameborder="0" allow="autoplay; fullscreen"></iframe>
+            <button id="playVideoButton" style="display:none;" onclick="playVideo()">Play Highlight</button>
+            <button id="plinkoButton" style="display:none;" onclick="window.location.href='/plinko'">Play Plinko Game</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

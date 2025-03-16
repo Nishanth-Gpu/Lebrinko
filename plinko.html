@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plinko Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='plinko.css') }}">
+</head>
+<body>
+    <div class="plinko-container">
+        <h1>Plinko Game</h1>
+        <div id="plinkoBoard">
+            <div id="ball"></div>
+            <!-- Peg rows for the Plinko board -->
+            <div class="peg-row"></div>
+            <div class="peg-row"></div>
+            <div class="peg-row"></div>
+            <div class="peg-row"></div>
+            <div class="peg-row"></div>
+            <div class="peg-row"></div>
+            <div class="slots">
+                <div class="slot">2x</div>
+                <div class="slot">1x</div>
+                <div class="slot">0x</div>
+                <div class="slot">1x</div>
+                <div class="slot">2x</div>
+            </div>
+        </div>
+        <button onclick="dropBall()">Drop Ball</button>
+        <div id="plinkoResult" style="display:none;">
+            <img src="{{ url_for('static', filename='lebron_disappointed.jpg') }}" alt="LeBron Disappointed" style="width: 300px; height: auto;">
+            <p id="resultMessage">I am really disappointed in you my sunshine. You knew the Plinko was a scam yet you still gambled and now you lose it all. </p>
+            <button onclick="window.location.href='/restart'">Restart Game</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='plinko.js') }}"></script>
+</body>
+</html>
